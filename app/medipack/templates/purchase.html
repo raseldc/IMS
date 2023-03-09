@@ -1,0 +1,165 @@
+{% extends 'main.html' %}
+{% load static %}
+{%block content%}
+    <section class="col-12 m-1 card p-2">
+
+        <div class="">
+            <div class="col-12 d-flex justify-content-between mt-2">
+
+                <div class="">
+                    <input class="search" type="text" id="search" name="search" placeholder=" Search">
+                    <button class="btn btn-primary" id="btn-search">Add Product</button>
+                </div>
+                <button type="button" class="btn btn-outline-success btn-sm btn-supplier"> <i class="fa-solid fa-plus"></i>Add Supplier</button>
+            </div>
+            <div class="row mt-1">
+
+                <div class="col-9">
+                    <div class="overflow-auto" style="height: 14rem;">
+                        <table class="table table-borderless mt-3">
+                            <thead>
+                              <tr>
+                                <th>Name</th>
+                                <th>Available Qty</th>
+                                <th>Purchase Qty</th>
+                                  <th>Code / Lot Number</th>
+                                <th>Price</th>
+                                <th>Action</th>
+                              </tr>
+                            </thead>
+                            <tbody id="search-body">
+
+                            </tbody>
+                        </table>
+                        </div>
+
+                    </div>
+
+                        <div class="col-3">
+                            <hr>
+                            <div class="d-flex justify-content-between">
+                                <span class="text-center">Billing</span>
+                                <div>
+                                    <button class="button button-success" id="btn-confirm">confirm</button>
+                                    <button class="button button-success" id="btn-print">Print</button>
+                                </div>
+
+                            </div>
+
+                            <hr>
+                            <div class="d-flex justify-content-between">
+                                <label class="">Purchase Invoice</label>
+                                <input class="input-purchase-invoice" type="number"/>
+                            </div>
+                            <div class="d-flex justify-content-between my-1">
+                                <label class="">Supplier Name</label>
+                                <input class="input-supplier-name" type="text"/>
+                            </div>
+
+                            <div class="d-flex justify-content-between my-1">
+                                <label class="">Contact No</label>
+                                <input class="input-mobile" type="number" />
+                            </div>
+
+                            <div class="d-flex justify-content-between">
+                                <label class="">Discount</label>
+                                <input class="input-discount" type="number" />
+                            </div>
+
+                            <div class="d-flex justify-content-between my-1">
+                                <label class="">Payment</label>
+                                <input class="input-payment " type="number" />
+                            </div>
+
+                            <div class="d-flex justify-content-between">
+                                <label class="">Due</label>
+                                <input class="input-vat " type="number"/>
+                            </div>
+                            <div class="d-flex justify-content-between my-1">
+                                <label class="">Date</label>
+                                <input class="input-date" type="date"/>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-around px-3">
+                                <div class="text-center">
+                                    <label class="text-center">Subtotal</label>
+                                    <h6 class="sub-total tex-center">0</h6>
+                                </div>
+                                <button type="button" class="button button-success mx-2 btn-purchase">Purchase</button>
+                                <div class="text-center">
+                                    <label class="text-center">Total</label>
+                                    <h6 class="total tex-center">0</h6>
+                                </div>
+                            </div>
+                            <hr>
+
+                        </div>
+
+                </div>
+        </div>
+
+        <div class=" col-12 mt-2 d-none">
+
+                <div class=" text-center invoice-item-card " style="height: 40rem;">
+
+                    <div class="d-flex justify-content-between">
+                        <h6 class="text-secondary">Product Details</h6>
+                        <div>
+<!--                            <button class="button button-success" id="btn-confirm">confirm</button>-->
+<!--                            <button class="button button-success" id="btn-print">Print</button>-->
+                        </div>
+
+                    </div>
+                    <div class="overflow-auto" style="height: 25rem;">
+                        <table class="table table-borderless">
+                            <thead>
+                              <tr>
+                                <th>Name</th>
+                                <th>Model</th>
+                                <th>Engine No</th>
+                                <th>Chassis No</th>
+                                <th>Color</th>
+                                <th>Battery</th>
+                                <th>Key No</th>
+                                <th>Purchase Price</th>
+                                <th>Selling Price</th>
+                                <th>Vat</th>
+                                <th>Origin</th>
+                                <th>Action</th>
+                              </tr>
+                            </thead>
+                            <tbody id="cart-body">
+
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                    <hr>
+
+
+                </div>
+
+            </div>
+
+    </section>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+
+          </div>
+          <div class="modal-body">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary save">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="{% static 'js/purchase/purchase.js' %}"></script>
+{% endblock content%}

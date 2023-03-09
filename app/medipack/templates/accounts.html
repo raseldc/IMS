@@ -1,0 +1,190 @@
+{% extends 'main.html' %}
+{% load static %}
+{%block content%}
+    <div class="col-12 py-2 d-flex justify-content-between align-items-right">
+        <div></div>
+        <div class="" role="group" aria-label="Basic example">
+            <button type="button" class="button button-success   btn-purchase">Purchase</button>
+            <button type="button" class="button button-success  btn-sales">Sales</button>
+            <button type="button" class="button button-success  btn-expense">Expense</button>
+            <button type="button" class="button button-success btn-bill-create">Create Expense</button>
+        </div>
+    </div>
+
+    <div class="row">
+            <div class="accounts-data col-2">
+                <p>Purchase</p>
+                <h5 id="total-purchase">0</h5>
+            </div>
+            <div class="accounts-data col-2">
+                <p>Purchase Due</p>
+                <p id="total-purchase-due">0</p>
+            </div>
+            <div class="accounts-data col-2">
+                <p>Sales</p>
+                <p id="total-sales">0</p>
+            </div>
+            <div class="accounts-data col-2">
+                <p>Sales Due</p>
+                <p id="total-sales-due">0</p>
+            </div>
+            <div class="accounts-data col-2">
+                <p>Expense</p>
+                <p id="total-expense">0</p>
+            </div>
+            <div class="accounts-data col-2">
+                <p>Expense Due</p>
+                <p id="total-expense-due">0</p>
+            </div>
+        </div>
+
+    <section class="col-12 mt-2">
+
+        <div class="purchase d-none">
+            <div class="d-flex justify-content-around">
+                <p class="col-2 text-start">Purchase Report</p>
+                <div class="row mx-1">
+                    <input id="purchase-from-date" class="input-date" type="date"/>
+                </div>
+                <div class="row mx-1">
+                     <input id="purchase-to-date" class="input-date" type="date"/>
+                </div>
+                <div class="mx-1">
+                     <button type="button" class="button button-success btn-purchase-report">Purchase Report</button>
+                </div>
+                <div class="input-field button search-section col-md-6 col-lg-6 col-sm-12 text-end">
+                    <button class="button-edit"  data-bs-toggle="tooltip" data-bs-placement="bottom" title="filter"><i class="fa-solid fa-filter"></i></button>
+                    <input type="text" id="fname" name="firstname" placeholder=" Search">
+                    <button class="button-success" id="btn-search-sales">search</button>
+                </div>
+            </div>
+            <div class="row shadow pt-2">
+
+            <div class="table-responsive col-md-12">
+
+                <table class="table table-borderless">
+                    <thead>
+                      <tr>
+                        <th>id</th>
+                        <th>Company Name</th>
+                        <th>Invoice</th>
+                        <th>Discount</th>
+                        <th>Due</th>
+                        <th>Payment</th>
+                        <th>Total</th>
+                          <th>Date</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="purchase-body">
+
+
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+        </div>
+
+        <div class="expense d-none">
+
+            <div class="row shadow pt-2">
+            <div class="input-field button search-section col-md-10 col-lg-10 col-sm-12">
+                <button class="button-edit"  data-bs-toggle="tooltip" data-bs-placement="bottom" title="filter"><i class="fa-solid fa-filter"></i></button>
+                <input type="text" id="fname" name="firstname" placeholder=" Search">
+                <button class="button-success" id="btn-search">search</button>
+            </div>
+            <div class="table-responsive col-md-12">
+
+
+                <table class="table table-borderless">
+                    <thead>
+                      <tr>
+                        <th>id</th>
+                        <th>Name</th>
+                        <th>Mobile</th>
+                        <th>Expense Type</th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="expense-body">
+
+
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+        </div>
+
+        <div class="sales">
+
+            <div class="d-flex justify-content-around">
+                <p class="col-2 text-start">Sales Report</p>
+                <div class="row mx-1">
+                    <input id="sales-from-date" class="input-date" type="date"/>
+                </div>
+                <div class="row mx-1">
+                     <input id="sales-to-date" class="input-date" type="date"/>
+                </div>
+                <div class="mx-1">
+                     <button type="button" class="button button-success btn-sales-report">Sales Report</button>
+                </div>
+                <div class="input-field button search-section col-md-6 col-lg-6 col-sm-12 text-end">
+                    <button class="button-edit"  data-bs-toggle="tooltip" data-bs-placement="bottom" title="filter"><i class="fa-solid fa-filter"></i></button>
+                    <input type="text" id="fname" name="firstname" placeholder=" Search">
+                    <button class="button-success" id="btn-search-sales">search</button>
+                </div>
+            </div>
+
+            <div class="row shadow pt-2">
+
+            <div class="table-responsive col-md-12">
+
+                <table class="table table-borderless">
+                    <thead>
+                      <tr>
+                        <th>id</th>
+                        <th>Invoice</th>
+                        <th>Contact</th>
+                        <th>Discount</th>
+                        <th>Due</th>
+                        <th>Payment</th>
+                        <th>Total</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="sales-body">
+
+
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary save">Save</button>
+              <button type="button" class="btn btn-primary d-none update">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="{% static 'js/accounts/accounts.js' %}"></script>
+{% endblock content%}

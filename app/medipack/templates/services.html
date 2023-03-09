@@ -1,0 +1,257 @@
+{% extends 'main.html' %}
+{% load static %}
+{%block content%}
+    <div class="col-12  p-2 d-flex justify-content-end align-items-right">
+        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-outline-success btn-sm btn-sales">Sales</button>
+            <button type="button" class="btn btn-outline-success btn-sm  btn-service-list">Service</button>
+            <button type="button" class="btn btn-outline-success btn-sm  btn-service">Create Service</button>
+        </div>
+
+    </div>
+
+    <section class="col-12 m-2 sales">
+        <div class="row p-2">
+            <div class="col-md-8 col-lg-8">
+                <h5 class="">Categories</h5>
+                <h6 class="text-secondary">Manage your purchases</h6>
+            </div >
+            <div class="col-md-4 col-lg-4">
+                <h5 class="">Order List</h5>
+                <h6 class="text-secondary">Invoice Number: IN-2233</h6>
+            </div>
+            <div class="table-responsive shadow  col-md-8 col-lg-8 col-sm-12">
+                <div class="input-field button search-section col-sm-12">
+                    <button class="button-edit"  data-bs-toggle="tooltip" data-bs-placement="bottom" title="filter"><i class="fa-solid fa-filter"></i></button>
+                    <input type="text" id="search" name="search" placeholder=" Search">
+                    <button class="btn btn-primary" id="btn-search">search</button>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <label for="payment" class="form-label">Categories</label>
+                        <select class="form-select" aria-label="payment">
+                            <option selected value="Computer">Computer</option>
+                            <option value="Mobile">Mobile</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <label for="payment" class="form-label">Sub Categories</label>
+                        <select class="form-select" aria-label="payment">
+                            <option selected value="laptop">Laptop</option>
+                            <option value="desktop">Desktop</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <label for="payment" class="form-label">Brand</label>
+                        <select class="form-select" aria-label="payment">
+                            <option selected value="dell">Dell</option>
+                            <option value="nokia">Nokia</option>
+                        </select>
+                    </div>
+                </div>
+
+                <table class="table table-borderless mt-3">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="search-body">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="shadow col-md-4 col-lg-4 col-sm-12 ">
+                <div class="row p-2">
+                    <button type="button" class="btn btn-outline-success btn-supplier"> <i class="fa-solid fa-plus"></i>Add Supplier</button>
+                    <label for="mobile-number" class="form-label mt-2">Supplier Mobile</label>
+                    <input type="text" class="form-control" id="mobile-number">
+                </div>
+                <div class="card  text-center invoice-item-card " style="height: 18rem;">
+                    <div class="card-header bg-light border-light d-flex justify-content-between">
+                      <h6>Total Items: 4</h6> <a href="#">Clear All</a>
+                    </div>
+                    <div class="card-body overflow-auto">
+                        <table class="table table-borderless">
+                            <thead>
+                              <tr>
+                                <!-- <th>Name</th>
+                                <th>Price</th>
+                                <th>Action</th> -->
+                              </tr>
+                            </thead>
+                            <tbody id="cart-body">
+
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+                <div class="button col-12 d-flex justify-content-center">
+                    <button class="btn btn-primary btn-sm my-1 button" id="btn-confirm">confirm</button>
+                </div>
+
+                <div class="card  text-center invoice-item-card " style="height: 10rem;">
+                    <div class="card-body">
+
+                        <div class="col-12 mt-1">
+                            <div class="row col-12">
+                                <span class="col-6 text-start">Subtotal</span>
+                                <div class="col-6 text-center">
+                                    <span class="sub-total">0</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-12 mt-1">
+                            <div class="row col-12">
+                                <span class="col-6 text-start">Vat</span>
+                                <div class="col-6 text-end">
+                                    <input class="form-control form-control-sm input-vat" type="number" placeholder="vat amount"/>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-12 mt-1">
+                            <div class="row col-12">
+                                <span class="col-6 text-start">Discount</span>
+                                <div class="col-6 text-end">
+                                    <input class="form-control form-control-sm col-6 input-discount" type="number" placeholder="discount amount"/>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-12 mt-1">
+                            <div class="row col-12">
+                                <span class="col-6 text-start">Payment</span>
+                                <div class="col-6 text-end">
+                                    <input class="form-control form-control-sm col-6 input-payment" type="number" placeholder="Payment amount"/>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="col-12 d-flex justify-content-end">
+            <div class="row col-4">
+                <h5 class="text-success col-6">Total</h5>
+                <div class="text-center col-6">
+                    <h5 class="total">0</h5>
+                </div>
+            </div>
+
+
+        </div><hr>
+
+        <div class="button col-12 d-flex justify-content-end align-items-right">
+            <button type="button" class="button button-success mx-2 btn-purchase">Purchase</button>
+        </div>
+    </section>
+
+    <section class="service col-12 m-2 d-none">
+        <div class="col-12">
+            <div class="Row">
+                <div class="col-4">
+                    <span>Service Info</span><hr>
+                    <input class="form-control form-control-sm mt-1 input-service-name" type="text" placeholder="Service Name"/>
+                    <textarea class="form-control mt-2 service-description" id="exampleFormControlTextarea1" rows="3" placeholder="Service Description"></textarea>
+                </div>
+
+                <div class="col-8">
+                    <div class="d-flex justify-content-between">
+                        <span>Create Service List</span>
+                        <button type="button" class="btn btn-outline-primary btn-sm mx-2 btn-add-item">Add Item</button>
+                    </div>
+                    <div class="table-responsive col-md-12">
+
+                        <table class="table table-borderless">
+                            <thead>
+                              <tr>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Description</th>
+                                <th>Action</th>
+                              </tr>
+                            </thead>
+                            <tbody id="service-body">
+
+
+                            </tbody>
+                          </table>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-sm mx-2 btn-create-service">Create Service</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-list col-12 m-2 d-none">
+        <div class="d-flex justify-content-between">
+            <div>
+                <h5 class="">Service List</h5>
+                <h6 class="text-secondary">Manage your services</h6>
+            </div>
+<!--            <div class="button">-->
+<!--                <button type="button" class="button-success" id="create-product"> <i class="fa-solid fa-plus"></i> Add New Product</button>-->
+<!--            </div>-->
+        </div>
+        <div class="row shadow pt-2">
+            <div class="input-field button search-section col-md-10 col-lg-10 col-sm-12">
+                <button class="button-edit"  data-bs-toggle="tooltip" data-bs-placement="bottom" title="filter"><i class="fa-solid fa-filter"></i></button>
+                <input type="text" id="fname" name="firstname" placeholder=" Search">
+            </div>
+            <div class="table-responsive col-md-12">
+
+                <table class="table table-borderless">
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th>Service Name</th>
+                        <th>Service Price</th>
+                        <th>Service Description</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="service-table-body">
+
+
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary save">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'js/service/service.js' %}"></script>
+{% endblock content%}

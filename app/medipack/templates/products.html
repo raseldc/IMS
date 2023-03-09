@@ -1,0 +1,97 @@
+{% extends 'main.html' %}
+{% load static %}
+{%block content%}
+    <section class="col-12 mt-2 content-body d-none">
+        <div class="col-12  p-2 d-flex justify-content-end align-items-right">
+        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-outline-success btn-sm  btn-inventory">Inventory</button>
+            <button type="button" class="btn btn-outline-success btn-sm btn-available">Available Products</button>
+            <button type="button" id="create-product" class="btn btn-outline-success btn-sm btn-sales">Add Products</button>
+        </div>
+    </div>
+        <div class="d-flex justify-content-between">
+            <div>
+                <h5 class="">Product List</h5>
+                <h6 class="text-secondary">Manage your products</h6>
+            </div>
+        </div>
+        <div class="row shadow pt-2 inventory d-block">
+            <div class="input-field button search-section col-md-10 col-lg-10 col-sm-12">
+                <button class="button-edit"  data-bs-toggle="tooltip" data-bs-placement="bottom" title="filter"><i class="fa-solid fa-filter"></i></button>
+                <input class="input-search" type="text" id="fname" name="firstname" placeholder=" Search">
+                <button class="button-success" id="btn-search">search</button>
+            </div>
+            <div class="table-responsive col-md-12">
+
+                <table class="table table-borderless">
+                    <thead>
+                      <tr>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Company</th>
+                        <th>Price</th>
+                        <th>unit</th>
+                        <th>Quantity</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="product-body">
+
+
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+
+        <div class="row shadow pt-2 available-bikes d-none">
+            <div class="input-field button search-section col-md-10 col-lg-10 col-sm-12">
+                <button class="button-edit"  data-bs-toggle="tooltip" data-bs-placement="bottom" title="filter"><i class="fa-solid fa-filter"></i></button>
+                <input class="input-search" type="text" id="fname" name="firstname" placeholder=" Search">
+                <button class="button-success" id="btn-search">search</button>
+            </div>
+            <div class="table-responsive col-md-12">
+
+                <table class="table table-borderless">
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Model</th>
+                        <th>Engine</th>
+                        <th>Chassis</th>
+                        <th>Color</th>
+                        <th>Battery</th>
+                          <th>Key</th>
+                        <th>Origin</th>
+                        <th>Purchase Price</th>
+                          <th>Selling Price</th>
+                      </tr>
+                    </thead>
+                    <tbody id="available-bike-body">
+
+
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+
+          </div>
+          <div class="modal-body">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary save">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="{% static 'js/products/products.js' %}"></script>
+{% endblock content%}
